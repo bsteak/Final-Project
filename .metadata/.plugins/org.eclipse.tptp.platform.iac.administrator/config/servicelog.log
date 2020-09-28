@@ -1,0 +1,42 @@
+<CommonBaseEvent creationTime="2020-09-28T03:03:59.746000Z" globalInstanceId="A60E92112EDC4BF08527CF486D5F1E5C" msg="Native file server started listening on port 10005" severity="10" version="1.0.1">
+	<sourceComponentId component="AgentController" componentIdType="TPTPComponent" executionEnvironment="ClientCTL.c, line 672" instanceId="1004" location="USLMABSALISBUR1" locationType="IPV4" processId="34844" subComponent="Client Compatibility TL" threadId="44780" componentType="Eclipse_TPTP"/>
+	<situation categoryName="ReportSituation">
+		<situationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ReportSituation" reasoningScope="INTERNAL" reportCategory="LOG"/>
+	</situation>
+</CommonBaseEvent>
+<CommonBaseEvent creationTime="2020-09-28T03:04:02.721000Z" globalInstanceId="AF383572464045D995DBE2DD641C59A3" msg="Received PUT_FILE command from client" severity="10" version="1.0.1">
+	<sourceComponentId component="AgentController" componentIdType="TPTPComponent" executionEnvironment="RACmdHandlers.c, line 884" instanceId="1004" location="USLMABSALISBUR1" locationType="IPV4" processId="34844" subComponent="Client Compatibility TL" threadId="43804" componentType="Eclipse_TPTP"/>
+	<situation categoryName="ReportSituation">
+		<situationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ReportSituation" reasoningScope="INTERNAL" reportCategory="LOG"/>
+	</situation>
+</CommonBaseEvent>
+<CommonBaseEvent creationTime="2020-09-28T03:04:02.757000Z" globalInstanceId="A57A361698684B2AB1B20213AB1264A6" msg="Received PUT_FILE command from client" severity="10" version="1.0.1">
+	<sourceComponentId component="AgentController" componentIdType="TPTPComponent" executionEnvironment="RACmdHandlers.c, line 884" instanceId="1004" location="USLMABSALISBUR1" locationType="IPV4" processId="34844" subComponent="Client Compatibility TL" threadId="43804" componentType="Eclipse_TPTP"/>
+	<situation categoryName="ReportSituation">
+		<situationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ReportSituation" reasoningScope="INTERNAL" reportCategory="LOG"/>
+	</situation>
+</CommonBaseEvent>
+<CommonBaseEvent creationTime="2020-09-28T03:04:03.550000Z" globalInstanceId="AFF66DD11FD543C4A93102828A6CD90B" msg="CONSOLE LAUNCHED COMMAND for connection(5001). " severity="10" version="1.0.1">
+	<sourceComponentId component="AgentController" componentIdType="TPTPComponent" executionEnvironment="namedPipeListener.c, line 590" instanceId="1002" location="USLMABSALISBUR1" locationType="IPV4" processId="34844" subComponent="Named Pipe TL" threadId="38168" componentType="Eclipse_TPTP"/>
+	<situation categoryName="ReportSituation">
+		<situationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ReportSituation" reasoningScope="INTERNAL" reportCategory="LOG"/>
+	</situation>
+</CommonBaseEvent>
+<CommonBaseEvent creationTime="2020-09-28T03:04:04.355000Z" globalInstanceId="A2493AE6653A46CE93B6C716A534996E" msg="PC handleProcessEvents: Process has exited with status 0." severity="50" version="1.0.1">
+	<sourceComponentId component="ProcessController" componentIdType="TPTPComponent" componentType="Eclipse_TPTP" executionEnvironment="ProcessController_md.cpp, line 284" instanceId="103" location="USLMABSALISBUR1" locationType="IPV4" processId="43632" subComponent="ProcessController" threadId="42208"/>
+	<situation categoryName="ReportSituation">
+		<situationType reasoningScope="INTERNAL" reportCategory="LOG" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ReportSituation"/>
+	</situation>
+</CommonBaseEvent>
+<CommonBaseEvent creationTime="2020-09-28T03:04:04.380000Z" globalInstanceId="AB11D556BDD542579A6B449F14D8B2CC" msg="CCTL Scrubbing process 43200 -- Either process exited normally (handleProcessExitEvent), was found to be inactive/not exist (scrubAllProcesses), or was killed by the client (killProcess)" severity="10" version="1.0.1">
+	<sourceComponentId component="AgentController" componentIdType="TPTPComponent" executionEnvironment="RACClientSupport.c, line 506" instanceId="1004" location="USLMABSALISBUR1" locationType="IPV4" processId="34844" subComponent="Client Compatibility TL" threadId="38168" componentType="Eclipse_TPTP"/>
+	<situation categoryName="ReportSituation">
+		<situationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ReportSituation" reasoningScope="INTERNAL" reportCategory="LOG"/>
+	</situation>
+</CommonBaseEvent>
+<CommonBaseEvent creationTime="2020-09-28T04:36:31.663000Z" globalInstanceId="A6D10695E73B4B68AB1307771E52EDBE" msg="Agent Controller shutdown requested through ACTL" severity="30" version="1.0.1">
+	<sourceComponentId component="AgentController" componentIdType="TPTPComponent" executionEnvironment="ACTLServer.c, line 376" instanceId="1005" location="USLMABSALISBUR1" locationType="IPV4" processId="34844" subComponent="Agent Compatibility TL" threadId="38980" componentType="Eclipse_TPTP"/>
+	<situation categoryName="ReportSituation">
+		<situationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ReportSituation" reasoningScope="INTERNAL" reportCategory="LOG"/>
+	</situation>
+</CommonBaseEvent>

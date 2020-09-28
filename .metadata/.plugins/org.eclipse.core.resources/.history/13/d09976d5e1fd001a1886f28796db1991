@@ -1,0 +1,27 @@
+package tests;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import pages.SearchPage;
+import pages.ItemPage;
+
+
+	public class shopPhoneTest {
+		
+		
+		WebDriver driver;
+		
+		
+		String browserType ="chrome";
+		String webUrl = "https://www.apple.com/";
+		
+		@Test	
+		public void ShopPhonePOM(){
+			SearchPage searchPage =  new SearchPage(driver);
+			ItemPage itemPage =  new ItemPage(driver);
+			
+		}
+	}

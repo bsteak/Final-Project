@@ -1,0 +1,152 @@
+package pages;
+
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+ 
+
+
+public class SelectPage {
+	
+	
+	boolean selected = false;
+	boolean foundItem = false;
+	private WebDriver driver;
+	WebElement we = null;
+	
+	String rating="";
+	
+public SelectPage(WebDriver driver){
+	this.driver = driver;
+	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+}
+
+
+public boolean selectItem(String selectEle){
+    try {
+         // identify element
+    	we = 	driver.findElement(By.xpath(selectEle));
+
+ 		we.click();
+ 		System.out.println("Item has been selected");
+ 		foundItem = true;
+      }
+      catch(NoSuchElementException n) {
+    	  System.out.println("Item has not been selected");
+    	  return foundItem;
+      }
+	return foundItem;
+}
+public boolean selectByCssItem(String selectEle) {
+	 try {
+         // identify element
+    	we = 	driver.findElement(By.cssSelector(selectEle));
+
+ 		we.click();
+ 		System.out.println("Item has been selected");
+ 		foundItem = true;
+      }
+      catch(NoSuchElementException n) {
+    	  System.out.println("Item has not been selected");
+    	  return foundItem;
+      }
+	return foundItem;
+}
+
+	public boolean findItem(String selectItem){
+		if (driver.findElement(By.xpath(selectItem)).isDisplayed())
+			foundItem= true;
+		return foundItem;
+	}
+	/*public boolean selectItem(){
+		
+		if (foundItem) 
+		driver.findElement(By.xpath("//*[@data-image-index='10']")).click();
+		selected = true;
+		return selected;
+	}*/
+	public void selectItemRating(){
+		
+		//10th item has rating print
+		if(driver.findElement(By.xpath("//*[@data-image-index='10']//following::span[6]")).getAttribute("innerHTML").contains("out of"))
+			{rating = driver.findElement(By.xpath("//*[@data-image-index='10']//following::span[6]")).getAttribute("innerHTML");
+			System.out.println("10th item rating is " + rating);
+			}
+		//else print first rating found
+		else {
+			rating = driver.findElement(By.cssSelector(".a-icon.a-icon-star-small span.a-icon-alt")).getAttribute("innerHTML");
+		System.out.println("10th item rating is " + rating);
+		}
+		
+	}
+
+
+	public void selectItemRating(String ratingEle) {
+		we =  driver.findElement(By.cssSelector(ratingEle));
+		new WebDriverWait(driver, 30).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf((we)));
+
+		rating = we.getAttribute("innerHTML");
+		System.out.println("Item rating is " + rating);
+	}
+
+
+	public boolean findText(String sectionTitle) {
+try{
+		foundItem = driver.findElement(By.cssSelector(sectionTitle)).isDisplayed(); 
+		
+		//return foundItem;
+		
+} catch(NoSuchElementException n) {
+       // return false;
+     }
+return foundItem;
+	}
+
+public void switchWindow(){
+		
+		// It will return the parent window name as a String
+		String parent=driver.getWindowHandle();
+
+		Set<String>s=driver.getWindowHandles();
+
+		// Now iterate using Iterator
+		Iterator<String> I1= s.iterator();
+
+		while(I1.hasNext())
+		{
+
+		String child_window=I1.next();
+
+
+		if(!parent.equals(child_window))
+		{
+		driver.switchTo().window(child_window);
+		// Debug
+		/*String test = driver.getCurrentUrl();
+		System.out.println(test);*/
+		break;
+		}
+		}
+	}
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+
+}

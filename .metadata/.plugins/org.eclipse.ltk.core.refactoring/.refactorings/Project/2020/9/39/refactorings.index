@@ -1,0 +1,27 @@
+1600564883928	Delete element
+1600564940880	Rename package 'project1Tests'
+1600572087970	Delete element
+1600573117349	Rename type 'DashboardPage'
+1600573322780	Rename type 'HomePage'
+1600575082971	Rename resource 'Select,feature'
+1600575170579	Delete element
+1600610313760	Rename package 'cucumberTests'
+1600613866553	Delete element
+1600615520438	Rename resource 'Search.feature'
+1600615534435	Rename resource 'Select.feature'
+1600615548305	Rename resource 'Cart.feature'
+1600615623947	Rename type 'SearchTestRunner'
+1600633308136	Delete element
+1600633345585	Delete element
+1600633531220	Rename type 'ResultPage'
+1600793144859	Rename package 'project1Tests'
+1600821895015	Rename method 'onSelectPage'
+1600824354019	Rename method 'onSelectPage'
+1600824403553	Rename field 'onSelectPage'
+1600894155729	Rename type 'SelectPage'
+1600894647589	Rename type 'loginPage'
+1600894740569	Rename type 'HomePage'
+1600895647816	Rename type 'ShopPhoneTest'
+1600895681993	Rename type 'testTest'
+1600895697914	Delete element
+1600895740667	Rename type 'ShopPhone2Test'

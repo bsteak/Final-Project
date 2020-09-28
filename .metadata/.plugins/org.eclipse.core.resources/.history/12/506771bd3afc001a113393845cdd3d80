@@ -1,0 +1,49 @@
+package Project2Tests;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
+
+import pages.HomePage;
+
+public class FurnitureShopTest {
+	WebDriver driver;
+	HomePage homePage =  new HomePage(driver);
+	
+	String browserType ="chrome";
+	String item = "appium Book";
+	String webUrl = "http://www.wayfair.com/";
+@Test
+
+	public void checkTitle(){
+	String title = homePage.getTitle();
+	System.out.println(title);
+	boolean onHomePage = homePage.onHomePage();
+	
+	Assert.assertTrue("On home page",onHomePage);
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	@Before
+	public void setup()
+	{
+		driver = utilities.DriverFactory.open(browserType);
+		driver.get(webUrl);
+	}
+	
+	//@After
+	public void breakDown()
+	{
+		driver.close();
+	}
+	
+}

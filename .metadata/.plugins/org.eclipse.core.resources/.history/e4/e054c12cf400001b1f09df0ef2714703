@@ -1,0 +1,57 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class LoginPage {
+	WebDriver driver;
+	WebElement we;
+	String userName;
+	String passWd;
+
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	public boolean getLogin(String signinEle){
+	    try {
+	         // identify element
+	    	we = 	driver.findElement(By.cssSelector(signinEle));
+
+	 		we.click();
+	 		System.out.println("User Logging in to add to cart");
+	 		return true;
+	      }
+	      catch(NoSuchElementException n) {
+	    	  System.out.println("User Logigng in to add to cart");
+	    	  return false;
+	      }
+	}
+	
+	
+	
+	
+	
+	
+	public void setUserName(){ //.sendKeys(userNameEle)
+		//userName =" bsalisbury@deloitte.com";
+		WebElement username = driver.findElement(By.cssSelector("input#ap_email"));
+	}
+	
+	public void setPassWd(){
+		//passWd = "P@sW0rd";
+		WebElement password = driver.findElement(By.cssSelector("input#ap_email"));
+	}
+	
+	public void login(String usernameEle, String passwordEle){
+		
+	
+		public void setLogin(String loginEle){
+			
+			Webelement login = driver.findElement(By.cssSelector(loginEle));
+		}
+	}
+
+}

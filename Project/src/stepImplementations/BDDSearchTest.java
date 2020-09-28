@@ -1,0 +1,44 @@
+package stepImplementations;
+
+
+import org.openqa.selenium.WebDriver;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import pages.SearchPage;
+
+
+public class BDDSearchTest {
+	static String browserType ="Chrome";
+	String item = "appium Book";
+
+	public static WebDriver driver = utilities.DriverFactory.open(browserType);
+	static SearchPage searchPage = new SearchPage(driver);
+	
+	
+	@Given("^user is on search page$")
+public void user_is_on_search_page(){
+	driver.manage().window().maximize();
+	driver.get("https://www.amazon.com/");
+	boolean onSearchPage = searchPage.onSearchPage();
+	if(onSearchPage) System.out.println ("User is on search page");
+
+}
+	
+	@When("^user enters search item$")
+public void user_enters_search_item(){
+	
+	searchPage.searchItem(item);
+	System.out.println ("User enters item to search for");
+}
+	
+	@Then("^user gets search results$")
+public void user_gets_search_results(){
+
+		boolean gotItem = false;
+		gotItem=searchPage.foundItem(); 
+		if (gotItem)System.out.println ("User found item");
+		else System.out.println ("User did not find item");
+	}
+}

@@ -1,0 +1,107 @@
+package tests;
+
+//Practical Question 3
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import pages.SearchPage;
+import pages.SelectPage;
+import pages.ItemPage;
+import pages.LoginPage;
+
+
+public class ShopPhoneTest {
+	
+	WebDriver driver;
+	String browserType ="chrome";
+	String webUrl = "https://www.amazon.com/";
+	
+	String item = "iPhone";
+	String selectEle = "img[alt='iPhone 11 Pro']";
+	String ratingEle = "i.a-icon.a-icon-star.a-star-5 span.a-icon-alt"; 
+	String sectionTitle = "#comparison-chart h1.a-text-center";
+	String signinEle = "button#a-autoid-29-announce";
+	String usernameEle = "input#ap_email";
+	String passwdEle ="input#ap_password";
+	String username = "bsalisbury@deloitte.com";
+	String passwd = "P@sW0rd";
+	String loginEle = "input#signInSubmit";
+	String addToCartEle = "input[title='Add to Shopping Cart']";
+	String NoThanksEle ="button[contains(text(),'No Thanks')]"; //"span[class='a-button qa-warranty-no-thanks-button']";
+	String priceEle = "span[class='a-size-base-plus a-color-price a-text-bold']";
+	String price ="";
+	String cartUrl = "https://www.amazon.com/gp/cart/view.html?ref_=nav_cart";
+	
+	
+	@Test	
+	public void ShopPhonePOM(){
+		SearchPage searchPage =  new SearchPage(driver);
+		SelectPage selectPage = new SelectPage(driver);
+		LoginPage loginPage = new LoginPage(driver);
+		ItemPage itemPage =  new ItemPage(driver);
+		
+	
+
+	
+	
+	//Search for iphone
+
+		boolean onSearchPage = searchPage.onSearchPage();
+		if(onSearchPage) System.out.println ("User is on search page");
+
+		
+		searchPage.searchItem(item);
+		System.out.println ("User enters item to search for");
+	
+	
+	//Select iphone 11 Pro from Shop  Apple 
+		if(selectPage.selectByCssItem(selectEle)){
+			
+			System.out.println ("User selects iphone 11 Pro in Apple Shop");
+				}
+	
+	//Validate the comparison chart is displayed 
+	if (selectPage.findText(sectionTitle)) System.out.println("Comparison Chart is displayed");
+	else System.out.println("Comparison Chart is not displayed");
+	
+	//Print the rating of the phone 
+	
+		selectPage.selectItemRating(ratingEle);
+		
+	//Login so can add to cart
+		
+		if (loginPage.getLogin(signinEle)) {
+			loginPage.setUserName(usernameEle);
+			loginPage.setPassWd(passwdEle);
+			loginPage.setLogin(loginEle);
+			loginPage.login(username,passwd);
+		};
+		
+	//>> Add Phone in the cart
+	
+	itemPage.addToCart(addToCartEle);
+	
+	//>> Print the total amount of the iPhone
+	itemPage.clickButton(NoThanksEle);
+	 price = itemPage.getPrice(priceEle);
+	System.out.println("Subtotal in cart is" + price);
+	
+	}
+	
+	@Before
+	public void setup()
+	{
+		driver = utilities.DriverFactory.open(browserType);
+		driver.manage().window().maximize();
+		driver.get(webUrl);
+	}
+	
+	//@After
+	public void breakDown()
+	{
+		driver.quit();
+	}
+}

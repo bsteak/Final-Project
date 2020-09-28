@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/Cucumber/cucumber-core-2.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/Cucumber/cucumber-java-2.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/Cucumber/cucumber-junit-2.4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/Cucumber/cucumber-jvm-deps-1.0.6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/Cucumber/gherkin-5.0.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/Cucumber/tag-expressions-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/Cucumber/tag-expressions-3.0.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

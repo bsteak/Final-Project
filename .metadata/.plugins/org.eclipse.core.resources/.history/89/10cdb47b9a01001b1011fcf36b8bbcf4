@@ -1,0 +1,158 @@
+package pages;
+
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
+public class ItemPage {
+	
+	private WebDriver driver;
+
+	boolean addedToCart; //Check if item page had an add to cart button
+	boolean onSelectPage = false;
+	WebElement we = null;
+	//WebDriverWait wait = new WebDriverWait(driver,30);
+	
+	
+	public ItemPage(WebDriver driver) {
+		this.driver = driver;
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+	}
+	public boolean onSelectedItemPage(){
+		if (driver.findElement(By.cssSelector("a#breadcrumb-back-link.a-link-normal.a-color-tertiary")).getText().contains("Back to results"))
+			onSelectPage = true;
+		return onSelectPage;
+	}
+	
+	
+	/*public void selectItem(){
+		
+		driver.findElement(By.xpath("//*[@data-image-index='10']")).click();
+		
+	}*/
+	/*
+	new WebDriverWait(driver, timeout)
+    .ignoring(StaleElementReferenceException.class)
+    .until(new Predicate<WebDriver>() {
+        @Override
+        public boolean apply(@Nullable WebDriver driver) {
+            driver.findElement(By.id("checkoutLink")).click();
+            return true;
+        }
+    });*/
+	
+	public void addToCart(String cartEle)	{
+		
+		new WebDriverWait(driver, 30).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(By.cssSelector(cartEle)));
+		we = driver.findElement(By.cssSelector(cartEle));
+		if(we.isDisplayed())we.click();
+		System.out.println("Item added to cart ");
+		addedToCart = true;
+		
+	}
+	public boolean addToCart(String itemAdd, String itemAdd2){
+		WebElement wd = null;
+		try{
+			
+			addedToCart = driver.findElement(By.cssSelector(itemAdd)).isDisplayed();
+						
+		}
+		catch(NoSuchElementException n1){
+			try {wd = driver.findElement(By.cssSelector(itemAdd2));
+			addedToCart = 	driver.findElement(By.cssSelector(itemAdd2)).isDisplayed();
+			if (addedToCart) wd.click();
+				return addedToCart;
+				
+			}
+			catch(NoSuchElementException n2){
+				return addedToCart;
+				
+			}
+				}
+		catch( Exception e){
+			addedToCart = false;
+			return addedToCart;
+		}
+		if (addedToCart){
+			
+			driver.findElement(By.cssSelector(itemAdd)).click();
+			return addedToCart;
+		
+			}
+		return addedToCart;
+		
+	}	
+	
+	public String getPrice(String priceEle){
+		String price ="";
+		boolean foundPrice = false;
+		
+      if (addedToCart){
+    	  foundPrice = driver.findElement(By.cssSelector(priceEle)).isDisplayed();
+    	  if (foundPrice)
+		price = driver.findElement(By.cssSelector(priceEle)).getAttribute("innerHTML");
+      }
+		
+		/*if (addedToCart)
+			try{
+		         WebDriverWait w = new WebDriverWait(driver, 5);
+		         w.until(ExpectedConditions .visibilityOfElementLocated(By.cssSelector(("span.a-color-price.hlb-price.a-inline-block.a-text-bold"))));
+		 	
+		         price = driver.findElement(By.cssSelector("span.a-color-price.hlb-price.a-inline-block.a-text-bold")).getAttribute("innerHTML");
+			
+				}
+				catch(NoSuchElementException n){
+					return price;
+					}
+			catch (Exception P){
+				return price;
+			}
+			
+			else 
+				try{
+			         WebDriverWait w = new WebDriverWait(driver, 5);
+			         w.until(ExpectedConditions .visibilityOfElementLocated(By.cssSelector(("span.a-color-price.hlb-price.a-inline-block.a-text-bold"))));
+			         price = driver.findElement(By.cssSelector("span.a-size-medium.a-color-price")).getAttribute("innerHTML");
+				}
+		catch(NoSuchElementException n){
+			return price;
+			}*/
+		return price;
+	}
+	public void getTotal(){
+		// Debug
+	/*	String test = driver.getCurrentUrl();
+		System.out.println(test);*/
+		String total = "";
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		new WebDriverWait(driver,30).until(ExpectedConditions.elementToBeClickable(By.linkText("Review Cart")));
+		we = driver.findElement(By.linkText("Review Cart"));
+		if(we.isDisplayed()) we.click();
+		total = driver.findElement(By.cssSelector("div.OrderSummaryTable-row.OrderSummaryTable-total span.OrderSummaryTable-cell.OrderSummaryTable-cell--right")).getAttribute("innerHTML");
+		System.out.println("Total with estimated tax "+total);
+	}
+	
+	public void clickButton(String buttonEle){
+		
+		new WebDriverWait(driver,30).until(ExpectedConditions.elementToBeClickable(By.cssSelector(buttonEle)));
+		we = driver.findElement(By.cssSelector(buttonEle));
+		if(we.isDisplayed())we.click();
+	}
+	public boolean getAddedToCart(){
+		return addedToCart;
+		
+		
+	}
+
+	
+
+}

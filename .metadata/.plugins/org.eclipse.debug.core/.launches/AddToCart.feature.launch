@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><launchConfiguration type="cucumber.eclipse.launching.localCucumberFeature">
+<stringAttribute key="cucumber feature" value="C:/Users/bsalisbury/Documents/TRAINING/QE LD Academy Automation Testing/Project1/features/AddToCart.feature"/>
+<stringAttribute key="glue path" value="classpath:"/>
+<booleanAttribute key="is html formatter?" value="false"/>
+<booleanAttribute key="is json formatter?" value="false"/>
+<booleanAttribute key="is junit formatter" value="false"/>
+<booleanAttribute key="is monochrome?" value="true"/>
+<booleanAttribute key="is pretty formatter?" value="true"/>
+<booleanAttribute key="is progress formatter?" value="false"/>
+<booleanAttribute key="is rerun formatter" value="false"/>
+<booleanAttribute key="is usage formatter" value="false"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Project1"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Project1"/>
+<booleanAttribute key="pde.generated.config" value="true"/>
+</launchConfiguration>

@@ -1,0 +1,70 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+
+
+ 
+
+
+public class SelectPage {
+	
+	
+	boolean selected = false;
+	boolean foundItem = false;
+	private WebDriver driver;
+	
+	
+public SelectPage(WebDriver driver){
+	this.driver = driver;
+}
+
+
+public void selectItem(String itemEle){
+    try {
+         // identify element
+    	we = 	driver.findElement(By.xpath("/descendant::div[@class='ProductCard-options ProductCard-options--sticky'][12]"));
+
+ 		we.click();
+ 		System.out.println("Item has been selected");
+      }
+      catch(NoSuchElementException n) {
+    	  System.out.println("Item has not been selected");
+      }
+	public boolean findItem(){
+		if (driver.findElement(By.xpath("//*[@data-image-index='10']")).isDisplayed())
+			foundItem= true;
+		return foundItem;
+	}
+	public boolean selectItem(){
+		
+		if (foundItem) 
+		driver.findElement(By.xpath("//*[@data-image-index='10']")).click();
+		selected = true;
+		return selected;
+	}
+	public void selectItemRating(){
+		String rating="";
+		//10th item has rating print
+		if(driver.findElement(By.xpath("//*[@data-image-index='10']//following::span[6]")).getAttribute("innerHTML").contains("out of"))
+			{rating = driver.findElement(By.xpath("//*[@data-image-index='10']//following::span[6]")).getAttribute("innerHTML");
+			System.out.println("10th item rating is " + rating);
+			}
+		//else print first rating found
+		else {
+			rating = driver.findElement(By.cssSelector(".a-icon.a-icon-star-small span.a-icon-alt")).getAttribute("innerHTML");
+		System.out.println("10th item rating is " + rating);
+		}
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,22 @@
+package pages;
+
+import org.openqa.selenium.WebDriver;
+
+public class LoginPage {
+	WebDriver driver;
+	String userName;
+	String passWd;
+
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	public void setUserName(){
+		userName =" bsalisbury@deloitte.com";
+	}
+	
+	public void setPassWd(){
+		passWd = "P@sW0rd";
+	}
+
+}

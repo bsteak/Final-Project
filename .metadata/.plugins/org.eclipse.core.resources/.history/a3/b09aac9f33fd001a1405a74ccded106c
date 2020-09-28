@@ -1,0 +1,54 @@
+package pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+
+ 
+
+
+public class SelectPage {
+	
+	
+	boolean selected = false;
+	boolean onSelectPage = false;
+	private WebDriver driver;
+	
+	public void onSelectPage(){
+		if (driver.findElement(By.xpath("//*[@data-image-index='10']")).isDisplayed())
+			onSelectPage= true;
+	}
+	public boolean selectItem(){
+		
+		if (onSelectPage) 
+		driver.findElement(By.xpath("//*[@data-image-index='10']")).click();
+		selected = true;
+		return selected;
+	}
+	public void selectItemRating(){
+		String rating="";
+		//10th item has rating print
+		if(driver.findElement(By.xpath("//*[@data-image-index='10']//following::span[6]")).getAttribute("innerHTML").contains("out of"))
+			{rating = driver.findElement(By.xpath("//*[@data-image-index='10']//following::span[6]")).getAttribute("innerHTML");
+			System.out.println("10th item rating is " + rating);
+			}
+		//else print first rating found
+		else {
+			rating = driver.findElement(By.cssSelector(".a-icon.a-icon-star-small span.a-icon-alt")).getAttribute("innerHTML");
+		System.out.println("10th item rating is " + rating);
+		}
+		
+	}
+	
+public SelectPage(WebDriver driver){
+	this.driver = driver;
+}
+	
+	
+	
+	
+	
+	
+	
+
+}

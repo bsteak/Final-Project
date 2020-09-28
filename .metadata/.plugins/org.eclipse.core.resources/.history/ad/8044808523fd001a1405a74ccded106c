@@ -1,0 +1,44 @@
+package stepImplementations;
+
+import org.openqa.selenium.WebDriver;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+
+import pages.SelectPage;
+import pages.ItemPage;
+// from cart page "span#sc-subtotal-amount-activecart span[class*='a-size-medium']";
+public class BDDCartTest {//<span class="a-size-medium a-color-base sc-price sc-white-space-nowrap sc-product-price a-text-bold">$46.40</span>
+	String priceEle ="span[class*='a-size-medium a-color-price']:nth-of-type(1)";// "span.a-color-price.hlb-price.a-inline-block.a-text-bold";
+	WebDriver driver = BDDSearchTest.driver;
+	ItemPage itemPage = new ItemPage(driver);
+	SelectPage selectPage = new SelectPage(driver);
+	String itemAdd = "input[id='add-to-cart-button']";//"input#add-to-cart-button";
+	
+	@Given("^user is on selected item page$")
+public void user_is_on_selected_item_page(){
+		if (selectPage.selectItem()){
+			System.out.println ("User is on selected item page");
+			itemPage.selectItem();
+		}
+		
+}
+	
+	@When("^user selects add to cart$")
+public void user_enters_search_item(){
+		if(itemPage.addToCart(itemAdd))
+	System.out.println ("User adds item to cart");
+		else System.out.println ("User could not add item to cart");
+}
+	
+	@Then("^user prints item amount$")
+public void user_gets_search_results(){
+		String price="";
+		price = itemPage.getPrice(priceEle);
+		System.out.println ("Cart Total = " + price);
+		driver.close();
+	}
+	
+	
+}

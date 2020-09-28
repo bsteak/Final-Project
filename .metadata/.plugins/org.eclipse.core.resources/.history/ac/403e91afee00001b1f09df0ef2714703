@@ -1,0 +1,78 @@
+package tests;
+
+import java.util.Iterator;
+import java.util.Set;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+
+import pages.HomePage;
+import pages.ItemPage;
+import pages.SelectPage;
+
+public class FurnitureShopTest {
+
+
+	WebDriver driver;
+	
+	
+	String browserType ="chrome";
+	String subCat = "img[class='ImageComponent-image ImageComponent-image--preventVerticalPopping'][alt='Sectionals']";	    	
+	String webUrl = "http://www.wayfair.com/";
+	String selItem = "/descendant::div[@class='ProductCard-options ProductCard-options--sticky'][12]";
+	String ratingEle = "div.pl-ReviewStars p[class='pl-VisuallyHidden']"; 
+	
+	private static final String cartEle = "button#btn-add-to-cart";
+
+@Test
+
+
+public void furnitureShopPOM(){
+	HomePage homePage =  new HomePage(driver);
+	ItemPage itemPage =  new ItemPage(driver);
+	SelectPage selectPage = new SelectPage(driver);
+
+	
+	//Go to furniture
+	homePage.goToCat();
+	//Select Sectionals under living Room Furniture>>
+	homePage.goTosubCat(subCat);
+	//Navigate to the 12th Item (Last item on 3 row based on search results) >> 
+	selectPage.selectItem(selItem);
+	//Print the rating of the item(if it does not have rating select any random item with rating) >> 
+	selectPage.selectItemRating(ratingEle);
+	//Add Item in the cart
+	selectPage.switchWindow();
+	itemPage.getItem(cartEle);
+	//>> Print the total amount of the Item
+	itemPage.getTotal();
+	
+	
+	
+	
+}
+
+	
+	
+	
+	
+	@Before
+	public void setup()
+	{
+		driver = utilities.DriverFactory.open(browserType);
+		driver.get(webUrl);
+	}
+	
+	//@After
+	public void breakDown()
+	{
+		driver.quit();
+	}
+	
+}
+
